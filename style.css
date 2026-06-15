@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://nkundangan.com/fonts/brigesta/fonts.css');
+@import url('https://nkundangan.com/fonts/e111viva/style.css');
+:root {
+    --inv-bg: #fff2dc;
+    --inv-base: #600e10;
+    --inv-accent: #c99e64;
+    --inv-border: #f7daad;
+    --menu-bg: #600e10;
+    --menu-inactive: #ffffff;
+    --menu-active: #c99e64;
+    --btn-color: #ffffff;
+    --font-base: "Work Sans", sans-serif;
+    --font-accent: "Brigesta", serif;
+    --font-latin: "English111 Vivace BT", cursive;
+}
+
+/* Default sembunyikan semua */
+.satumomen_list li .frame .frame-1,
+.satumomen_list li .frame .frame-2,
+div .card.accordion .editor-wrapper .frame .frame-1,
+div .card.accordion .editor-wrapper .frame .frame-2
+{
+  display: none;
+}
+
+/* Default sembunyikan semua */
+.satumomen_list li .frame .frame-1,
+.satumomen_list li .frame .frame-2,
+div .card.accordion .editor-wrapper .frame .frame-1,
+div .card.accordion .editor-wrapper .frame .frame-2
+{
+  display: none;
+}
+
+/* li ke 3, 5, 7, 9, dst → tampilkan tm-2 */
+.satumomen_list li:nth-child(odd) .frame .frame-1,
+div .card.accordion:nth-child(odd) .editor-wrapper .frame .frame-1 {
+  display: block;
+}
+
+/* li ke 2, 4, 6, 8, dst → tampilkan frame-1 */
+.satumomen_list li:nth-child(even) .frame .frame-2,
+div .card.accordion:nth-child(even) .editor-wrapper .frame .frame-2  {
+  display: block;
+}
+
+@keyframes left-right {
+    0% {
+        transform: translateX(8%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.left-right img {
+    animation: left-right 3s ease-in-out infinite alternate;
+}
+
+@keyframes wave-left {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(1deg);
+    }
+}
+
+@keyframes wave-right {
+    0% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-1deg);
+    }
+}
+
+@keyframes wave-left {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(1deg);
+    }
+}
+
+@keyframes wave-right {
+    0% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(-1deg);
+    }
+}
+
+.wave-left img {
+transform-origin: left bottom;
+margin-left: -5%;
+animation: wave-left 4s ease-in-out infinite alternate;
+}
+
+.wave-right img {
+transform-origin: right bottom;
+margin-left: 5%;
+animation: wave-right 4s ease-in-out infinite alternate;
+}
+
+@import url('https://nkundangan.com/fonts/brittany_signature/BrittanySignature.css');
+        @import url('https://nkundangan.com/fonts/photograph_signature/fonts.css');
+        @import url('https://nkundangan.com/fonts/heatwood/Heatwood.css');
+        .font-brittany-signature {
+            font-family: 'Brittany Signature';
+            line-height: 1.6 !important;
+        }
+        .font-photograph-signature {
+            font-family: 'Photograph Signature';
+            line-height: 1.6 !important;
+        }
+        .font-heatwood {
+            font-family: 'Heatwood';
+            line-height: 3 !important;
+        }
+        #YTMusic {display: block}
