@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://nkundangan.com/fonts/brigesta/fonts.css');
 @import url('https://nkundangan.com/fonts/e111viva/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 :root {
     --inv-bg: #fff2dc;
@@ -133,7 +134,6 @@ div .card.accordion:nth-child(even) .editor-wrapper .frame .frame-2 {
     display: block
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 .font-great-vibes {
     font-family: 'Great Vibes', cursive !important;
 }
