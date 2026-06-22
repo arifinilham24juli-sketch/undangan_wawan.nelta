@@ -1621,6 +1621,30 @@
     <script src="script.js"></script>
     <!-- Supabase RSVP -->
     <script src="supabase-rsvp.js"></script>
+
+    <!-- =============================================
+         NAMA TAMU DARI URL
+         Contoh URL: undangan.html?to=Budi+Santoso
+         ============================================= -->
+    <script>
+        (function () {
+            // Ambil parameter "to" dari URL
+            const params   = new URLSearchParams(window.location.search);
+            const namaTamu = params.get('to') || params.get('nama') || '';
+
+            if (namaTamu) {
+                const decoded = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+
+                // Tampilkan di slot nama tamu pada cover
+                const slot = document.getElementById('guestNameSlot');
+                if (slot) slot.textContent = decoded;
+
+                // Isi juga data-guest agar platform mengenali tamu
+                const satuMomen = document.getElementById('satuMomen');
+                if (satuMomen) satuMomen.setAttribute('data-guest', decoded);
+            }
+        })();
+    </script>
 </body>
 
 </html>
