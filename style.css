@@ -137,3 +137,257 @@ div .card.accordion:nth-child(even) .editor-wrapper .frame .frame-2 {
 .font-great-vibes {
     font-family: 'Great Vibes', cursive !important;
 }
+
+/* =============================================
+   RSVP MODAL — Custom Supabase Form
+   ============================================= */
+
+/* Header */
+.rsvp-modal-header {
+    background: linear-gradient(135deg, var(--inv-base) 0%, #8b1a1c 100%);
+    padding: 20px 20px 16px;
+    text-align: center;
+    color: #fff;
+}
+.rsvp-modal-title {
+    font-size: 32px;
+    color: var(--inv-accent);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+.rsvp-modal-subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+}
+
+/* Tabs */
+.rsvp-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--inv-border);
+    background: #fff;
+}
+.rsvp-tab {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: #aaa;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+.rsvp-tab.active {
+    color: var(--inv-base);
+    border-bottom-color: var(--inv-accent);
+    background: #fffaf4;
+}
+
+/* Tab content */
+.rsvp-tab-content {
+    display: none;
+    padding: 16px;
+    overflow-y: auto;
+    max-height: calc(100vh - 230px);
+    background: #fffaf4;
+}
+.rsvp-tab-content.active {
+    display: block;
+}
+
+/* Form fields */
+.rsvp-field {
+    margin-bottom: 14px;
+}
+.rsvp-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--inv-base);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.rsvp-label .required {
+    color: #e74c3c;
+    margin-left: 2px;
+}
+.rsvp-input {
+    width: 100%;
+    padding: 10px 13px;
+    border: 1.5px solid var(--inv-border);
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fff;
+    color: #333;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    font-family: var(--font-base);
+    outline: none;
+}
+.rsvp-input:focus {
+    border-color: var(--inv-accent);
+    box-shadow: 0 0 0 3px rgba(201,158,100,0.18);
+}
+.rsvp-textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+/* Radio group */
+.rsvp-radio-group {
+    display: flex;
+    gap: 10px;
+}
+.rsvp-radio-label {
+    flex: 1;
+    cursor: pointer;
+}
+.rsvp-radio-label input[type="radio"] {
+    display: none;
+}
+.rsvp-radio-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 6px;
+    border: 2px solid var(--inv-border);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    background: #fff;
+    transition: all 0.2s;
+    text-align: center;
+}
+.rsvp-radio-label input[type="radio"]:checked + .rsvp-radio-box {
+    border-color: var(--inv-accent);
+    background: linear-gradient(135deg, var(--inv-base), #8b1a1c);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(96,14,16,0.25);
+}
+
+/* Submit button */
+.rsvp-btn-submit {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--inv-base) 0%, #8b1a1c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(96,14,16,0.3);
+}
+.rsvp-btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(96,14,16,0.4);
+}
+.rsvp-btn-submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Alert */
+.rsvp-alert {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-align: center;
+}
+.rsvp-alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1.5px solid #a5d6a7;
+}
+.rsvp-alert-error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1.5px solid #ef9a9a;
+}
+
+/* Daftar ucapan */
+.ucapan-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.ucapan-item {
+    background: #fff;
+    border: 1.5px solid var(--inv-border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    transition: box-shadow 0.2s;
+}
+.ucapan-item:hover {
+    box-shadow: 0 3px 12px rgba(201,158,100,0.2);
+}
+.ucapan-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.ucapan-nama {
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--inv-base);
+}
+.ucapan-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+}
+.badge-hadir {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+.badge-tidak {
+    background: #ffebee;
+    color: #c62828;
+}
+.ucapan-teks {
+    font-size: 13px;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* Loading & empty state */
+.rsvp-loading,
+.rsvp-empty {
+    text-align: center;
+    color: #aaa;
+    font-size: 13px;
+    padding: 24px 0;
+}
+
+/* Spinner animasi */
+.rsvp-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: rsvp-spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+@keyframes rsvp-spin {
+    to { transform: rotate(360deg); }
+}

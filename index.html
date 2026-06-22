@@ -351,7 +351,7 @@
                                         <div class="w-100">
                                             <div class="color-accent editable text-center animate__animated animate__fadeInDown animate__slower font-great-vibes"
                                                 style="font-size:50px;">
-                                                pengantin Pria</div>
+                                                Pengantin Pria</div>
                                         </div>
                                         <div class="w-100 text-center">
 
@@ -584,7 +584,7 @@
                                             alt="divider.webp" height="50" />
                                         <div class="color-accent editable animate__animated animate__fadeInUp animate__slower font-great-vibes"
                                             style="font-size:32px;line-height:1.2;">
-                                            Resepsi Pernikahan </div>
+                                            Ngunduh Mantu </div>
                                         <div class="mb-3 animate__animated animate__fadeInUp animate__slower"
                                             style="animation-delay:1s;">
 
@@ -1406,18 +1406,103 @@
         <!-- startRSVPModal -->
         <div class="modal fade" id="rsvpModal" tabindex="-1" role="dialog" aria-labelledby="rsvpModal">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-4" style="height:100%">
-                    <!-- rsvp form -->
-                    <rsvp-component
-                        :lang="{&quot;invitation_code&quot;:&quot;Kode Undangan&quot;,&quot;validate_code&quot;:&quot;Validasi Kode Undangan&quot;,&quot;name&quot;:&quot;Nama&quot;,&quot;group_name&quot;:&quot;Nama Grup&quot;,&quot;phone&quot;:&quot;No Hp \/ WhatsApp&quot;,&quot;attendance&quot;:&quot;Kehadiran?&quot;,&quot;yes&quot;:&quot;Hadir&quot;,&quot;no&quot;:&quot;Tidak Hadir&quot;,&quot;guest&quot;:&quot;Orang&quot;,&quot;guest_count&quot;:&quot;Jumlah Tamu&quot;,&quot;comment&quot;:&quot;Komentar atau Ucapan&quot;,&quot;send&quot;:&quot;Kirim&quot;,&quot;update&quot;:&quot;Kirim&quot;,&quot;captcha_placeholder&quot;:&quot;Ketik Text&quot;}"
-                        :invitation_id="809029" name="" code="" :replace="true" overlay="1"></rsvp-component>
-                    <!-- rsvp form -->
-                    <button onclick="closeModal(rsvpModal)" type="button" class="btn btn-close"><svg
-                            xmlns="http://www.w3.org/2000/svg" height="42px" width="42px" fill="none"
+                <div class="modal-content" style="height:100%; border-radius:16px; overflow:hidden;">
+
+                    <!-- Header Modal -->
+                    <div class="rsvp-modal-header">
+                        <div class="rsvp-modal-title font-great-vibes">Kirim Ucapan & RSVP</div>
+                        <p class="rsvp-modal-subtitle">Sampaikan doa &amp; konfirmasi kehadiran Anda</p>
+                    </div>
+
+                    <!-- Tab navigasi -->
+                    <div class="rsvp-tabs">
+                        <button class="rsvp-tab active" onclick="switchTab('tab-form', this)">✉️ Kirim RSVP</button>
+                        <button class="rsvp-tab" onclick="switchTab('tab-ucapan', this)">💬 Daftar Ucapan</button>
+                    </div>
+
+                    <!-- TAB 1: Form RSVP -->
+                    <div id="tab-form" class="rsvp-tab-content active">
+                        <form id="formRSVPCustom" novalidate>
+
+                            <!-- Alert -->
+                            <div id="rsvpAlert" class="rsvp-alert" style="display:none;"></div>
+
+                            <!-- Nama -->
+                            <div class="rsvp-field">
+                                <label class="rsvp-label" for="rsvpNama">Nama Lengkap <span
+                                        class="required">*</span></label>
+                                <input id="rsvpNama" type="text" class="rsvp-input" placeholder="Masukkan nama Anda"
+                                    required />
+                            </div>
+
+                            <!-- No HP -->
+                            <div class="rsvp-field">
+                                <label class="rsvp-label" for="rsvpHp">No HP / WhatsApp</label>
+                                <input id="rsvpHp" type="tel" class="rsvp-input"
+                                    placeholder="08xxxxxxxxxx (opsional)" />
+                            </div>
+
+                            <!-- Kehadiran -->
+                            <div class="rsvp-field">
+                                <label class="rsvp-label">Konfirmasi Kehadiran <span class="required">*</span></label>
+                                <div class="rsvp-radio-group">
+                                    <label class="rsvp-radio-label">
+                                        <input type="radio" name="kehadiran" value="hadir" />
+                                        <span class="rsvp-radio-box">
+                                            <span class="rsvp-radio-icon">✓</span> Hadir
+                                        </span>
+                                    </label>
+                                    <label class="rsvp-radio-label">
+                                        <input type="radio" name="kehadiran" value="tidak_hadir" />
+                                        <span class="rsvp-radio-box">
+                                            <span class="rsvp-radio-icon">✗</span> Tidak Hadir
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Jumlah Tamu (muncul jika hadir) -->
+                            <div id="wrapJumlahTamu" class="rsvp-field" style="display:none;">
+                                <label class="rsvp-label" for="rsvpJumlah">Jumlah Tamu</label>
+                                <select id="rsvpJumlah" class="rsvp-input">
+                                    <option value="1">1 Orang</option>
+                                    <option value="2">2 Orang</option>
+                                    <option value="3">3 Orang</option>
+                                    <option value="4">4 Orang</option>
+                                    <option value="5">5 Orang</option>
+                                </select>
+                            </div>
+
+                            <!-- Ucapan -->
+                            <div class="rsvp-field">
+                                <label class="rsvp-label" for="rsvpUcapan">Doa &amp; Ucapan</label>
+                                <textarea id="rsvpUcapan" class="rsvp-input rsvp-textarea" rows="3"
+                                    placeholder="Tulis doa dan ucapan untuk pengantin..."></textarea>
+                            </div>
+
+                            <!-- Tombol Kirim -->
+                            <button id="btnKirimRSVP" type="submit" class="rsvp-btn-submit">
+                                Kirim RSVP 💌
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- TAB 2: Daftar Ucapan -->
+                    <div id="tab-ucapan" class="rsvp-tab-content">
+                        <div id="daftarUcapan" class="ucapan-list">
+                            <p class="rsvp-loading">Memuat ucapan...</p>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Tutup -->
+                    <button onclick="closeModal(rsvpModal)" type="button" class="btn btn-close">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="42px" width="42px" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M6 18 18 6M6 6l12 12" />
-                        </svg></button>
+                        </svg>
+                    </button>
+
                 </div>
             </div>
         </div>
@@ -1499,6 +1584,20 @@
 
     <script src="https://nkundangan.com/themes/themes-scroll.js?v=160426"></script>
 
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Tab switcher RSVP -->
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.rsvp-tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.rsvp-tab').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+            if (tabId === 'tab-ucapan') muat_ucapan();
+        }
+    </script>
+
 
     <!-- end script -->
 
@@ -1508,6 +1607,8 @@
         data-cf-beacon='{"version":"2024.11.0","token":"4bf8031ec68549ac876b2ea6e2177988","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <!-- Supabase RSVP -->
+    <script src="supabase-rsvp.js"></script>
 </body>
 
 </html>
