@@ -54,7 +54,7 @@
         <!-- Loader -->
         <div id="loader" class="loader-wrapper"><span class="loader"><span class="loader-inner"></span></span></div>
         <!-- music -->
-        <audio id="music" loop autoplay>
+        <audio id="music" loop>
             <source src="assets/music.mpeg#t=70">
         </audio>
         <!-- end music -->
@@ -1459,6 +1459,21 @@
                 if (satuMomen) satuMomen.setAttribute('data-guest', decoded);
             }
         })();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnOpen = document.querySelector('.btn-open-invitation');
+            if (btnOpen) {
+                btnOpen.addEventListener('click', function() {
+                    const audio = document.getElementById('music');
+                    if (audio) {
+                        audio.play().catch(function(error) {
+                            console.log("Audio play failed:", error);
+                        });
+                    }
+                });
+            }
+        });
     </script>
 </body>
 
